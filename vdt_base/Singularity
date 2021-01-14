@@ -20,6 +20,8 @@ From: nvidia/cuda:11.0-cudnn8-devel-centos7
 	yum -y groups install "X Window System"
 
 	yum -y install libXp # For ANSYS EM
+	yum -y install wget
+    yum -y install patch
     yum -y install numpy
 	yum -y install bzip2
 	yum -y install libX11
@@ -96,10 +98,7 @@ From: nvidia/cuda:11.0-cudnn8-devel-centos7
 	echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" >> /etc/yum.repos.d/vscode.repo
 	yum -y install code
 	
-%environment
-	
-
-	
+%environment	
 	export PATH=${PATH}:/opt/TurboVNC/bin
 	
 	# General
