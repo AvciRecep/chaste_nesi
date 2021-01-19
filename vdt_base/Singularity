@@ -100,7 +100,8 @@ From: nvidia/cuda:11.0-devel-centos7
 	yum -y install code
 
 	# Create sockets folder.
-	mkdir -p /var/run/nvidia-persistenced/socket 
+	mkdir -p /var/run/nvidia-persistenced/ 
+	
 %environment	
 	export PATH=${PATH}:/opt/TurboVNC/bin
 	
