@@ -8,6 +8,7 @@ From: nvidia/cuda:11.0-devel-centos7
     export FIREFOX_VERSION=9.0
     export VGL_VERSION=2.6.3
     export DESKTOP_VERSION=2.0
+    export DIST=$(. /etc/os-release; echo $ID$VERSION_ID)
 
 	yum -y update
 	yum -y upgrade 
@@ -49,6 +50,7 @@ From: nvidia/cuda:11.0-devel-centos7
 	yum -y install libXext-devel.x86_64
 	yum -y install bash-completion-extras
 	yum -y install -y gcc-c++ # Needed to compile Websocketify rebind lib.
+	sudo apt install nvidia-container-toolkit
 	
 	yum -y install tcl-8.5.13-8.el7.x86_64 \
 	lua-filesystem-1.6.2-2.el7.x86_64 \
@@ -98,7 +100,10 @@ From: nvidia/cuda:11.0-devel-centos7
 	rpm --import https://packages.microsoft.com/keys/microsoft.asc
 	echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" >> /etc/yum.repos.d/vscode.repo
 	yum -y install code
-
+	
+	
+	curl -s -L https://nvidia.github.io/libnvidia-container/$DIST/libnvidia-container.repo | sudo tee /etc/yum.repos.d/libnvidia-container.repo
+	
 	# Create sockets folder.
 	mkdir -p /var/run/nvidia-persistenced/ 
 	
