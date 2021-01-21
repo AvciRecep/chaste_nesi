@@ -61,10 +61,6 @@ From: nvidia/cuda:11.0-devel-centos7
 	lua-lpeg-0.12-1.el7.x86_64 \
 	lua-posix-32-2.el7.x86_64 \
 	lua-5.1.4-15.el7.x86_64 
-
-	#GPU stuff 
-	#distribution=$(. /etc/os-release;echo $ID$VERSION_ID) && curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.repo | sudo tee /etc/yum.repos.d/nvidia-docker.repo
-	#yum clean expire-cache
 	
 	# Generic python
 	python3 -m pip install numpy scipy matplotlib ipython jupyter pandas
@@ -102,7 +98,7 @@ From: nvidia/cuda:11.0-devel-centos7
 	
 	#CUDA
 	curl -s -L https://nvidia.github.io/libnvidia-container/$DIST/libnvidia-container.repo | tee /etc/yum.repos.d/libnvidia-container.repo
-	yum -y install nvidia-container-toolkit
+	# yum -y install nvidia-container-toolkit
 	# Create sockets folder.
 	mkdir -p /var/run/nvidia-persistenced/ 
 	
