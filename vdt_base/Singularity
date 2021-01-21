@@ -16,14 +16,14 @@ From: nvidia/cuda:11.0-devel-centos7
 	yum -y --enablerepo=epel install VirtualGL
 	
 	yum -y groupinstall "Xfce"
-    yum -y install gnome-terminal
+        yum -y install gnome-terminal
 	yum -y groups install "X Window System"
 
 	yum -y install libXp # For ANSYS EM
 	yum -y install git
 	yum -y install wget
-    yum -y install patch
-    yum -y install numpy
+        yum -y install patch
+        yum -y install numpy
 	yum -y install bzip2
 	yum -y install libX11
 	yum -y install glibc
@@ -103,7 +103,7 @@ From: nvidia/cuda:11.0-devel-centos7
 	mkdir -p /var/run/nvidia-persistenced/ 
 	
 %environment	
-	export PATH=${PATH}:/opt/TurboVNC/bin
+	export PATH=${PATH}:/opt/TurboVNC/bin:/opt/VirtualGL/bin/
 	
 	# General
 	export LANG="en_US.UTF-8"
