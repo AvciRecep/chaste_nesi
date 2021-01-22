@@ -101,6 +101,8 @@ From: nvidia/cuda:11.0-devel-centos7
 	# Create sockets folder.
 	mkdir -p /var/run/nvidia-persistenced/ 
 	
+	yum -y update # Don't know if this does anything
+	
 %environment	
 	export PATH=${PATH}:/opt/TurboVNC/bin:/opt/VirtualGL/bin/
 	
