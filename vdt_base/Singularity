@@ -60,6 +60,16 @@ From: nvidia/cuda:11.0-devel-centos7
 	lua-lpeg-0.12-1.el7.x86_64 \
 	lua-posix-32-2.el7.x86_64 \
 	lua-5.1.4-15.el7.x86_64 
+			
+	#CUDA
+	distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+	curl -s -L https://nvidia.github.io/nvidia-container-runtime/$distribution/nvidia-container-runtime.repo | tee /etc/yum.repos.d/nvidia-container-runtime.repo
+	
+	yum -y install nvidia-container-runtime
+	# Create sockets folder.
+	mkdir -p /var/run/nvidia-persistenced/ 
+	
+	nvidia-xconfig
 	
 	# Generic python
 	python3 -m pip install numpy scipy matplotlib ipython jupyter pandas
@@ -93,15 +103,8 @@ From: nvidia/cuda:11.0-devel-centos7
 	# VScode
 	rpm --import https://packages.microsoft.com/keys/microsoft.asc
 	echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" >> /etc/yum.repos.d/vscode.repo
-	yum -y install code
+	yum -y install code	
 	
-	#CUDA
-	distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-	curl -s -L https://nvidia.github.io/nvidia-container-runtime/$distribution/nvidia-container-runtime.repo | tee /etc/yum.repos.d/nvidia-container-runtime.repo
-	
-	yum -y install nvidia-container-runtime
-	# Create sockets folder.
-	mkdir -p /var/run/nvidia-persistenced/ 
 	
 	
 %environment	
