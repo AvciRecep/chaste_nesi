@@ -97,14 +97,15 @@ From: nvidia/cuda:11.0-devel-centos7
 	
 	#CUDA
 	yum clean all
-	rpm --import <(curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey)
+	#rpm --import <(curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey)
 	DIST=$(. /etc/os-release; echo $ID$VERSION_ID)
 	curl -s -L https://nvidia.github.io/libnvidia-container/$DIST/libnvidia-container.repo | tee /etc/yum.repos.d/libnvidia-container.repo
-	DIST=$(sed -n 's/releasever=//p' /etc/yum.conf)
-        DIST=${DIST:-$(. /etc/os-release; echo $VERSION_ID)}
-        rpm -e gpg-pubkey-f796ecb0
-        gpg --homedir /var/lib/yum/repos/$(uname -m)/$DIST/libnvidia-container/gpgdir --delete-key f796ecb0
-        yum makecache
+	yum-config-manager --enable libnvidia-container-experimental
+	#DIST=$(sed -n 's/releasever=//p' /etc/yum.conf)
+        #DIST=${DIST:-$(. /etc/os-release; echo $VERSION_ID)}
+        #rpm -e gpg-pubkey-f796ecb0
+        #gpg --homedir /var/lib/yum/repos/$(uname -m)/$DIST/libnvidia-container/gpgdir --delete-key f796ecb0
+	yum makecache
 	# Create sockets folder.
 	mkdir -p /var/run/nvidia-persistenced/ 
 	
