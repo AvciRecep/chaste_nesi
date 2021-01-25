@@ -97,6 +97,7 @@ From: nvidia/cuda:11.0-devel-centos7
 	
 	#CUDA
 	DIST=$(. /etc/os-release; echo $ID$VERSION_ID)
+	rpm --import <(curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey)
 	curl -s -L https://nvidia.github.io/libnvidia-container/$DIST/libnvidia-container.repo | tee /etc/yum.repos.d/libnvidia-container.repo
 	DIST=$(sed -n 's/releasever=//p' /etc/yum.conf)
         DIST=${DIST:-$(. /etc/os-release; echo $VERSION_ID)}
