@@ -38,7 +38,7 @@ From: ubuntu:focal
 
 	# Install dependencies with recommended, applicable suggested and other useful packages
 	apt-get update && \
-	apt-get install --no-install-recommends chaste-dependencies
+	apt-get install -y --no-install-recommends chaste-dependencies
 	rm -rf /var/lib/apt/lists/*
 	
 	# Fix CMake warnings: https://github.com/autowarefoundation/autoware/issues/795
