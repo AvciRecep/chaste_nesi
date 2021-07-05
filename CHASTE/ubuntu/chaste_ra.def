@@ -51,7 +51,7 @@ From: ubuntu:focal
 		graphviz \
 		gnuplot \
 		python-dev \
-		python-pip \
+		python3-pip \
 		python-setuptools \
 		python-vtk6 \
 		libvtk6-dev \
