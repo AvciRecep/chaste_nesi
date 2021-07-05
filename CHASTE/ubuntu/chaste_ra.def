@@ -42,8 +42,8 @@ From: ubuntu:focal
 	rm -rf /var/lib/apt/lists/*
 	
 	# Fix CMake warnings: https://github.com/autowarefoundation/autoware/issues/795
-	update-alternatives --install /usr/bin/vtk vtk /usr/bin/vtk6 10
-	#update-alternatives --install /usr/bin/vtk vtk /usr/bin/vtk7 10
+	#update-alternatives --install /usr/bin/vtk vtk /usr/bin/vtk6 10
+	update-alternatives --install /usr/bin/vtk vtk /usr/bin/vtk7 10
 	#ln -s /usr/bin/vtk6 /usr/bin/vtk
 	ln -s /usr/lib/python2.7/dist-packages/vtk/libvtkRenderingPythonTkWidgets.x86_64-linux-gnu.so \
 		/usr/lib/x86_64-linux-gnu/libvtkRenderingPythonTkWidgets.so
