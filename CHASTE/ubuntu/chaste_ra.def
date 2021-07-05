@@ -38,40 +38,14 @@ From: ubuntu:focal
 
 	# Install dependencies with recommended, applicable suggested and other useful packages
 	apt-get update && \
-	apt-get install -y --no-install-recommends \
-		chaste-dependencies \
-		git \
-		valgrind \
-		"libpetsc*-dbg" \
-		openssh-client \
-		hdf5-tools \
-		cmake-curses-gui \
-		libgoogle-perftools-dev \
-		doxygen \
-		graphviz \
-		gnuplot \
-		python-dev \
-		python3-pip \
-		python-setuptools \
-		python-vtk6 \
-		libvtk6-dev \
-		cmake \
-		scons \
-		sudo \
-		nano \
-		curl \
-		wget \
-		rsync \
-		mencoder \
-		mplayer && \
-	rm -rf /var/lib/apt/lists/*
+	apt-get install chaste-dependencies
 
 	# Fix CMake warnings: https://github.com/autowarefoundation/autoware/issues/795
-	update-alternatives --install /usr/bin/vtk vtk /usr/bin/vtk6 10
+	#update-alternatives --install /usr/bin/vtk vtk /usr/bin/vtk6 10
 	#update-alternatives --install /usr/bin/vtk vtk /usr/bin/vtk7 10
 	#ln -s /usr/bin/vtk6 /usr/bin/vtk
-	ln -s /usr/lib/python2.7/dist-packages/vtk/libvtkRenderingPythonTkWidgets.x86_64-linux-gnu.so \
-		/usr/lib/x86_64-linux-gnu/libvtkRenderingPythonTkWidgets.so
+	#ln -s /usr/lib/python2.7/dist-packages/vtk/libvtkRenderingPythonTkWidgets.x86_64-linux-gnu.so \
+	#	/usr/lib/x86_64-linux-gnu/libvtkRenderingPythonTkWidgets.so
 
 	# Install TextTest for regression testing (this requires pygtk)
 	pip install --upgrade pip
