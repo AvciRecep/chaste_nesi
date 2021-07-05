@@ -38,7 +38,33 @@ From: ubuntu:focal
 
 	# Install dependencies with recommended, applicable suggested and other useful packages
 	apt-get update && \
-	apt-get install -y --no-install-recommends chaste-dependencies
+	apt-get install -y --no-install-recommends \
+	        chaste-dependencies \
+		git \
+		valgrind \
+		"libpetsc*-dbg" \
+		openssh-client \
+		hdf5-tools \
+		cmake-curses-gui \
+		libgoogle-perftools-dev \
+		doxygen \
+		graphviz \
+		gnuplot \
+		python3-dev \
+		python3-pip \
+		python3-setuptools \
+		python3-vtk7 \
+		libvtk7-dev \
+		cmake \
+		scons \
+		sudo \
+		nano \
+		curl \
+		wget \
+		rsync \
+		mencoder \
+		mplayer && \
+	
 	rm -rf /var/lib/apt/lists/*
 	
 	# Fix CMake warnings: https://github.com/autowarefoundation/autoware/issues/795
